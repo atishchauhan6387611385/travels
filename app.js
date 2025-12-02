@@ -26,8 +26,9 @@ const upload = multer({storage})
 const mbxGeocoding = require("@mapbox/mapbox-sdk/services/geocoding");
 const geocoder = mbxGeocoding({ accessToken: process.env.MAP_TOKEN });
 
-
+const port = process.env.PORT||8080;
 const MONGO_URL =process.env.MONGO_DB;
+
 
 main()
   .then(() => {
@@ -280,7 +281,7 @@ app.post("/login",
 //   res.send("successful testing");
 // });
 
-app.listen(8080, () => {
-  console.log("server is listening to port 8080");
+app.listen(port, () => {
+  console.log(`server is listening on port ${port}`);
 });
 //project part 1(a) complete
